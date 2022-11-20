@@ -1,0 +1,86 @@
+.container , form{
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  padding: 10px 15px;
+  justify-content: center;
+  align-items: center;
+  @media(max-width:600px){
+    flex-direction: column;
+  }
+}
+.container{
+  flex-direction: column;
+}
+.selectors{
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.selector , .input{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 220px;
+}
+.input {
+  margin-top: -23px;
+  @media(max-width:600px){
+    margin-top: 0;
+  }
+}
+.button-change{
+  background-color: rgb(211, 211, 211);
+  border: 0;
+  height: 40px;
+  width: 50px;
+  margin: 0 auto;
+
+}
+.btns{
+  font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  span {
+    font-size: 16px;
+
+  }
+  button{
+    width: 150px;
+    height: 40px;
+    border-radius: 2px;
+    background-color: rgb(27, 107, 255);
+    border: 1px solid white;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+  }
+}
+.loading{
+  animation: spin 1s ease-in infinite alternate-reverse;
+}
+.update{
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  color: rgb(27, 107, 255);
+  span{
+    color: gray;
+    font-size: 10px;
+  }
+}
+@keyframes spin {
+from {
+  transform: rotate(0deg);
+}
+to{
+  transform: rotate(360deg);
+}
+}

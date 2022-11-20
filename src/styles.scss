@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~ng-zorro-antd/ng-zorro-antd.min.css";
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+  margin: 0;
+}
+
+.snackBar {
+  color: white;
+  position: fixed;
+  bottom: 0;
+  right: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  @media(max-width:600px){
+    max-width: 200px !important;
+  }
+}
+
+button {
+  cursor: pointer;
+
+  &:disabled {
+    cursor: auto;
+    opacity: 0.4;
+  }
+
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

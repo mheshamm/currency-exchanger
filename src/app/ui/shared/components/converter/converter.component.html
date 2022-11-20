@@ -1,0 +1,59 @@
+<div class="container">
+  <form [formGroup]="form">
+    <div class="input">
+      <mat-label>Amount</mat-label>
+      <nz-input-group [nzSize]="'large'">
+        <input formControlName="amount" type="number" nz-input />
+      </nz-input-group>
+    </div>
+    <div class="selectors">
+      <div class="selector">
+        <mat-label>From</mat-label>
+        <nz-select
+          nzPlaceHolder="Select Currency"
+          [nzShowSearch]="true"
+          [nzLoading]="currencies?.currencies.length == 0"
+          [nzSize]="'large'"
+          formControlName="from"
+        >
+          <ng-container *ngFor="let currency of currencies?.currencies">
+            <nz-option [nzLabel]="currency" [nzValue]="currency"> </nz-option>
+          </ng-container>
+        </nz-select>
+      </div>
+      <button
+        class="button-change"
+        [disabled]="form.invalid"
+        (click)="onChangeCurrencies(from.value, to.value)"
+      >
+        <mat-icon *ngIf="!loading"> swap_horiz </mat-icon>
+        <mat-icon class="loading" *ngIf="loading">autorenew</mat-icon>
+      </button>
+      <div class="selector">
+        <mat-label>To</mat-label>
+        <nz-select
+          nzPlaceHolder="Select Currency"
+          [nzShowSearch]="true"
+          [nzLoading]="currencies?.currencies.length == 0"
+          [nzSize]="'large'"
+          formControlName="to"
+        >
+          <ng-container *ngFor="let currency of currencies?.currencies">
+            <nz-option [nzLabel]="currency" [nzValue]="currency"> </nz-option>
+          </ng-container>
+        </nz-select>
+      </div>
+    </div>
+
+  </form>
+  <div class="btns">
+
+    <button [disabled]="form.invalid" (click)="onConvert()">
+      <mat-icon class="loading" *ngIf="loading">autorenew</mat-icon>
+      <span *ngIf="!loading">Convert</span></button>
+      <span *ngIf="converted">{{converted}}</span>
+    <span class="update" *ngIf="updatedDate">Last Update : <span>{{updatedDate | date:Constants.fullDateTimeFormat}}</span></span>
+  </div>
+
+
+</div>
